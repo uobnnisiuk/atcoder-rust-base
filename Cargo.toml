@@ -1,116 +1,201 @@
-# -*- coding:utf-8-unix -*-
-
 [package]
 name = "{{project-name}}"
 version = "0.1.0"
 authors = ["{{authors}}"]
-edition = "2018"
+edition = "2021"
 
 [[bin]]
 name = "main"
 path = "src/main.rs"
 
 [dependencies]
-# AtCoder 2020年言語アップデート以降に使用できるクレート。
-# 次のページに各クレートについての細かい紹介があります。
-# https://github.com/rust-lang-ja/atcoder-rust-resources/wiki/2020-Update
+# 競技プログラミング向けのアルゴリズムライブラリ
+#ac-library-rs = "=0.1.1"
 
-# 数値型の抽象化、多倍長整数、複素数、分数、及び整数型の拡張
-#num = "=0.2.1"
-#num-bigint = "=0.2.6"
-#num-complex = "=0.2.4"
-#num-integer = "=0.1.42"
-#num-iter = "=0.1.40"
-#num-rational = "=0.2.4"
-#num-traits = "=0.2.11"
+# グローバルな静的データを遅延初期化するためのライブラリ
+#once_cell = "1.20.2"
 
-# `num-traits`の自動実装
-#num-derive = "=0.3.0"
+# コンパイル時のアサーションを行うマクロ
+#static_assertions = "=1.1.0"
 
-# NumPyの`ndarray`のような多次元配列
-#ndarray = "=0.13.0"
+# SATソルバーのライブラリ
+#varisat = "=0.2.2"
 
-# 線形代数
-#nalgebra = "=0.20.0"
+# 関数のメモ化をサポートするライブラリ
+#memoise = "=0.3.2"
 
-# (線形)代数の抽象化
+# コマンドライン引数のパースを支援するライブラリ
+#argio = "=0.2.0"
+
+# ビットベクターの操作を提供するライブラリ
+#bitvec = "=1.0.1"
+
+# カウンタを管理するデータ構造のライブラリ
+#counter = "0.6.0"
+
+# 重複を許すハッシュバッグ（マルチセット）のライブラリ
+#hashbag = "0.1.12"
+
+# 再帰関数を簡潔に記述するためのライブラリ
+#recur-fn = "=2.2.0"
+
+# インデックス操作を支援するライブラリ（実験的なポインタ範囲機能）
+#indexing = { version = "=0.4.1", features = ["experimental_pointer_ranges"] }
+
+# 拡張機能や数値処理を提供するライブラリ（Cの生ポインタ、乱数、文字列変換機能）
+#amplify = { version = "3.14.2", features = ["c_raw", "rand", "stringly_conversions"] }
+
+# Amplifyクレート用の派生マクロライブラリ
+#amplify_derive = "3.0.1"
+
+# 標準ライブラリを使用した数値処理の拡張ライブラリ
+#amplify_num = { version = "0.5.0", features = ["std"] }
+
+# 拡張機能を簡単に実装するためのライブラリ
+#easy-ext = "1.0.2"
+
+# 複数値を持つマルチマップのデータ構造
+#multimap = "0.10.0"
+
+# Bツリーマルチマップのデータ構造
+#btreemultimap = "=0.1.1"
+
+# パス探索アルゴリズムを提供するライブラリ
+#pathfinding = "=4.11.0"
+
+# バイト列の操作を提供するライブラリ
+#bstr = "=1.10.0"
+
+# 軽量な文字列ライブラリ
+#az = "=1.2.1"
+
+# 高速なソートアルゴリズムを提供するライブラリ
+#glidesort = "=0.1.2"
+
+# オプション型を便利に扱うためのユーティリティライブラリ
+#tap = "=1.0.1"
+
+# 汎用的なスワップ操作を提供するライブラリ
+#omniswap = "=0.1.0"
+
+# 複数のバージョンを同時に管理するためのライブラリ
+#multiversion = "0.8.0"
+
+# 数値計算をサポートする基本ライブラリ
+#num = "0.4.3"
+
+# 任意精度整数型を提供するライブラリ
+#num-bigint = "0.4.6"
+
+# 複素数型を提供するライブラリ
+#num-complex = "0.4.6"
+
+# 整数に関する数学的トレイトを提供するライブラリ
+#num-integer = "0.1.46"
+
+# イテレーション用の数値トレイトを提供するライブラリ
+#num-iter = "0.1.45"
+
+# 有理数型を提供するライブラリ
+#num-rational = "0.4.2"
+
+# 数値型の共通トレイトを提供するライブラリ
+#num-traits = "0.2.19"
+
+# 数値関連のデリベーションマクロを提供するライブラリ
+#num-derive = "0.4.2"
+
+# 多次元配列を提供するライブラリ
+#ndarray = "0.16.1"
+
+# 線形代数のためのライブラリ
+#nalgebra = "0.33.2"
+
+# 線形代数の抽象トレイトを提供するライブラリ
 #alga = "=0.9.3"
 
-# libmのRust実装
-#libm = "=0.2.1"
+# 標準ライブラリにない数学関数を提供するライブラリ
+#libm = "0.2.11"
 
-# 乱数
-#rand = { version = "=0.7.3", features = ["small_rng"] }
-#getrandom = "=0.1.14"
-#rand_chacha = "=0.2.2"
-#rand_core = "=0.5.1"
-#rand_hc = "=0.2.0"
-#rand_pcg = "=0.2.1"
+# 乱数生成をサポートするライブラリ（小型乱数生成器と定数生成）
+#rand = { version = "0.8.5", features = ["small_rng", "min_const_gen"] }
 
-# 乱数の分布の追加
-#rand_distr = "=0.2.2"
+# システムの乱数ソースを取得するためのライブラリ
+#getrandom = "0.2.15"
 
-# グラフ
-#petgraph = "=0.5.0"
+# ChaCha乱数生成アルゴリズムの実装
+#rand_chacha = "=0.3.1"
 
-# 挿入順を保持するhash table
-#indexmap = "=1.3.2"
+# 乱数生成器のコアライブラリ
+#rand_core = "=0.6.4"
 
-# 正規表現
-#regex = "=1.3.6"
+# HC乱数生成アルゴリズムの実装
+#rand_hc = "=0.3.2"
 
-# staticアイテムの遅延初期化
-#lazy_static = "=1.4.0"
+# PCG乱数生成アルゴリズムの実装
+#rand_pcg = "0.3.1"
 
-# `NotNan<f64>`, `OrderedFloat<f64>`
-#ordered-float = "=1.0.2"
+# 乱数分布を提供するライブラリ
+#rand_distr = "=0.4.3"
 
-# ASCII文字列
-#ascii = "=1.0.0"
+# グラフデータ構造とアルゴリズムを提供するライブラリ（ダウングレード）
+#petgraph = "=0.6.3"
 
-# permutation
+# 順序付きのハッシュマップを提供するライブラリ
+#indexmap = "2.5.0"
+
+# 正規表現の処理を提供するライブラリ
+#regex = "1.11.1"
+
+# 遅延初期化のための静的変数を提供するマクロ
+#lazy_static = "1.5.0"
+
+# 順序付き浮動小数点数型を提供するライブラリ
+#ordered-float = "4.6.0"
+
+# ASCII文字列を扱うためのライブラリ
+#ascii = "1.1.0"
+
+# 順列を生成するためのライブラリ
 #permutohedron = "=0.2.4"
 
-# スライスの拡張
+# スライスを拡張するためのユーティリティライブラリ
 #superslice = "=1.0.0"
 
-# イテレータの拡張
-#itertools = "=0.9.0"
+# イテレーションの拡張機能を提供するライブラリ
+#itertools = "0.14.0"
 
-# イテレータの拡張（一次元累積和と浮動小数点数の等差数列）
+# イテレーション用の数値トレイトを提供するライブラリ
 #itertools-num = "=0.1.3"
 
-# `BTreeMap`, `BTreeSet`, `HashMap`, `HashSet`のリテラル用マクロ
-#maplit = "=1.0.2"
+# マクロを使ったリテラルの拡張を提供するライブラリ
+#maplit = "1.0.2"
 
-# 即席enum `Either<L, R>`
-#either = "=1.5.3"
+# 論理型を提供するユーティリティライブラリ
+#either = "1.13.0"
 
-# `BTreeMap`, `BTreeSet`, `HashMap`, `HashSet`, `Vec`の永続データ構造版
-#im-rc = "=14.3.0"
+# 不変のマルチセットを提供するライブラリ
+#im-rc = "15.1.0"
 
-# 可変長bit set
-#fixedbitset = "=0.2.0"
+# 固定サイズビットセットを提供するライブラリ
+#fixedbitset = "0.5.7"
 
-# 可変長bit set
+# 固定ビットセットを提供するライブラリ
 #bitset-fixed = "=0.1.0"
 
-# 競技プログラミングの入出力サポートその1
-proconio = { version = "=0.3.6", features = ["derive"] }
+# 入力の高速処理を支援するマクロ
+proconio = { version = "0.5.0", features = ["derive"] }
 
-# 競技プログラミングの入出力サポートその2
-#text_io = "=0.1.8"
+# テキスト入力を簡素化するライブラリ
+#text_io = "=0.1.12"
 
-# 競技プログラミングの入出力サポートその3
-#whiteread = "=0.5.0"
+# 高速なハッシュ関数を提供するライブラリ
+#rustc-hash = "2.1.0"
 
-# 高速なハッシュ関数
-#rustc-hash = "=1.1.0"
-
-# ある長さまでは要素を「直に」持つ可変長配列
-#smallvec = "=1.2.0"
+# 小型の可変長ベクターを提供するライブラリ（定数ジェネリクス、serdeなどの機能付き）
+#smallvec = { version = "=1.11.0", features = ["const_generics", "const_new", "write", "union", "serde", "arbitrary"] }
 
 # ---------------------------------------------------------------------
 
 [dev-dependencies]
-cli_test_dir = "0.1"
+#cli_test_dir = "0.1.8"
